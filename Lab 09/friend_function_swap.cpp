@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -44,7 +43,8 @@ int main() {
     First obj1(10);
     Second obj2(20);
 
-    cout << "Before swapping:" << endl;
+    cout << "Before swapping: " << endl;
+
     cout << "First number: ";
     obj1.display();
     cout << endl;
@@ -55,7 +55,8 @@ int main() {
 
     swapNumbers(obj1, obj2);
 
-    cout << "\nAfter swapping:" << endl;
+    cout << "\nAfter swapping: " << endl;
+
     cout << "First number: ";
     obj1.display();
     cout << endl;
