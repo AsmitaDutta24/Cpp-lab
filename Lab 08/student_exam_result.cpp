@@ -1,10 +1,8 @@
-
 #include <iostream>
 #include <iomanip>
 #include <cstring>
 using namespace std;
 
-// Base class
 class Student {
 protected:
     int rollNo;
@@ -12,28 +10,27 @@ protected:
 
 public:
     void getStudentData() {
-        cout << "Enter Roll No   : ";
+        cout << "Enter Roll No : ";
         cin >> rollNo;
 
-        cout << "Enter Name      : ";
+        cout << "Enter Name : ";
         cin.ignore();
         cin.getline(name, 64);
     }
 
     void showStudentData() {
         cout << "Roll No : " << rollNo << "\n";
-        cout << "Name    : " << name << "\n";
+        cout << "Name : " << name << "\n";
     }
 };
 
-// Derived class (Level 1)
 class Exam : public Student {
 protected:
     float marks[6];
 
 public:
     void getExamData() {
-        cout << "\nEnter marks in 6 subjects (out of 100 each):\n";
+        cout << "\nEnter marks in 6 subjects (out of 100 each): \n";
 
         for (int i = 0; i < 6; i++) {
             cout << "Subject " << (i + 1) << ": ";
@@ -42,7 +39,7 @@ public:
     }
 
     void showExamData() {
-        cout << "\nMarks obtained:\n";
+        cout << "\nMarks obtained : \n";
 
         for (int i = 0; i < 6; i++) {
             cout << "Subject " << (i + 1) << ": "
@@ -51,8 +48,6 @@ public:
     }
 };
 
-// Derived class (Level 2)
-// Result inherits Exam, which inherits Student
 class Result : public Exam {
 private:
     float totalMarks;
@@ -65,7 +60,7 @@ private:
         for (int i = 0; i < 6; i++)
             totalMarks += marks[i];
 
-        percentage = totalMarks / 6.0f;
+        percentage = totalMarks / 6.0;
 
         if (percentage >= 90)
             grade = 'A';
@@ -88,19 +83,20 @@ public:
 
     void displayResult() {
         cout << fixed << setprecision(2);
-
-        cout << "\n========================================\n";
-        cout << "              RESULT SHEET\n";
-        cout << "========================================\n";
+        cout << "\n========================\n";
+        cout << "       RESULT SHEET\n";
+        cout << "========================\n";
 
         showStudentData();
         showExamData();
 
         cout << "\nTotal Marks : " << totalMarks
              << " / 600\n";
-        cout << "Percentage  : " << percentage << "%\n";
-        cout << "Grade       : " << grade << "\n";
-        cout << "========================================\n";
+
+        cout << "Percentage : " << percentage << "%\n";
+        cout << "Grade : " << grade << "\n";
+
+        cout << "========================\n";
     }
 };
 
@@ -122,7 +118,7 @@ int main() {
         res[i].processResult();
     }
 
-    cout << "\n########## FINAL RESULTS ##########\n";
+    cout << "\n######## FINAL RESULTS ########\n";
 
     for (int i = 0; i < n; i++)
         res[i].displayResult();
